@@ -193,6 +193,7 @@ export type CollectPaymentMethodParams = {
   tipEligibleAmount?: number;
   updatePaymentIntent?: boolean;
   enableCustomerCancellation?: boolean;
+  requestDynamicCurrencyConversion?: boolean;
 };
 
 export type CollectSetupIntentPaymentMethodParams = {
@@ -407,6 +408,7 @@ export type Input = {
   submitButtonText?: string;
   title: string;
   selectionButtons?: SelectionButton[];
+  toggles?: Toggle[];
 };
 
 export type CollectInputResult = {
@@ -417,6 +419,7 @@ export type CollectInputResult = {
   selection?: string;
   signatureSvg?: string;
   text?: string;
+  toggles?: ToggleResult[];
 };
 
 export type SelectionButton = {
@@ -426,7 +429,24 @@ export type SelectionButton = {
 
 export enum SelectionButtonStyle {
   PRIMARY = 'PRIMARY',
-  SECONDARY = 'CanSECONDARYceled',
+  SECONDARY = 'SECONDARY',
+}
+
+export type Toggle = {
+  title: string;
+  description: string;
+  defaultValue: ToggleValue;
+};
+
+export enum ToggleValue {
+  ENABLED = 'ENABLED',
+  DISABLED = 'DISABLED',
+}
+
+export enum ToggleResult {
+  ENABLED = 'ENABLED',
+  DISABLED = 'DISABLED',
+  SKIPPED = 'SKIPPED',
 }
 
 export type OfflineDetails = {
